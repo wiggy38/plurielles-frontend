@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files
+.sidebar[data-color=black]:after, .bootstrap-navbar[data-color=black]:after {
+    background: #000000;
+    background: linear-gradient(to bottom,#000000 0%,#000000 100%);
+    background-size: 150% 150%;
+}*/
+
+.btnblack {
+    color: #FFFFFF;
+    background-color: #000000;
+}

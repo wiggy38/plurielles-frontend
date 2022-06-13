@@ -1,0 +1,169 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Enregistrer une nouvelle adhérante</h4>
+                    </div>
+                    <div class="content">
+                        <form [formGroup]="formMember" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Prénoms</label>
+                                        <input type="text" id="prenoms" formControlName="prenoms" class="form-control p-inputtext" pInputText [(ngModel)]="prenoms" placeholder="Prénoms">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nom</label>
+                                        <input type="text" id="nom" formControlName="nom" class="form-control p-inputtext" pInputText [(ngModel)]="nom" placeholder="Nom">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Quartier</label>
+                                        <input type="text"  formControlName="quartier" class="form-control p-inputtext" pInputText [(ngModel)]="quartier" placeholder="area">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Téléphone</label>
+                                        <input type="text"  formControlName="phone" class="form-control p-inputtext" pInputText [(ngModel)]="phone" placeholder="Téléphone">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Adresse e-mail</label>
+                                        <input type="email" formControlName="email" class="form-control p-inputtext" pInputText [(ngModel)]="email" placeholder="Adresse e-mail">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>categorie</label>
+                                        <input type="number" formControlName="category" class="form-control p-inputtext" pInputText [(ngModel)]="category" placeholder="Catégorie">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Formule d'adhésion</label>
+                                        <input type="number" formControlName="formula" class="form-control p-inputtext" pInputText [(ngModel)]="formula" placeholder="Formule">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Réf. pièce d'identité</label>
+                                        <input type="text" formControlName="formula" class="form-control p-inputtext" pInputText [(ngModel)]="formula" placeholder="Référence">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Adresse</label>
+                                        <input type="text" formControlName="address" class="form-control p-inputtext" pInputText [(ngModel)]="address" placeholder="Adresse">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Ville</label>
+                                        <input type="text" formControlName="city" class="form-control p-inputtext" pInputText [(ngModel)]="city" placeholder="Ville">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Profession</label>
+                                        <input type="text" formControlName="profession" class="form-control p-inputtext" pInputText [(ngModel)]="profession" placeholder="Profession">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Situation familiale</label>
+                                        <input type="text" id="situationFamiliale" formControlName="situationFamiliale" class="form-control p-inputtext" pInputText [(ngModel)]="situationFamiliale" placeholder="Situation familiale">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label style="margin-bottom:0px">Existence Juridique</label>
+                                        &nbsp;
+                                        <p-checkbox [(ngModel)]="existJuridiq" [binary]="true" id="binary" inputId="binary"></p-checkbox>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Documents juridiques</label>
+                                        <div class="field-checkbox">
+                                            <p-checkbox name="rccm" value="Registre de commerce" [(ngModel)]="selectedDocs" id="rccm" inputId="rccm"></p-checkbox>
+                                            &nbsp;
+                                            <label for="rccm" style="margin-bottom:0px">Registre de commerce</label>
+                                        </div>
+                                        <div class="field-checkbox">
+                                            <p-checkbox name="numIdentification" value="Numéro d'identification" [(ngModel)]="selectedDocs" id="numIdentification" inputId="numIdentification"></p-checkbox>
+                                            &nbsp;<label for="numIdentification" style="margin-bottom:0px">Numéro d'identification</label>
+                                        </div>
+                                        <div class="field-checkbox">
+                                            <p-checkbox name="numImpots" value="Numéro des impôts" [(ngModel)]="selectedDocs" id="numImpots" inputId="numImpots"></p-checkbox>
+                                            &nbsp;<label for="numImpots" style="margin-bottom:0px">Numéro des impôts</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Commentaires</label>
+                                        <textarea rows="5" formControlName="commentaires" class="form-control p-inputtext" pInputText [(ngModel)]="commentaires" placeholder="Commentaires"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-dark btn-fill pull-right">Enregistrer</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <!--div class="image">
+                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+                    </div-->
+                    <div class="content margin-top">
+                        <div class="author">
+                            <a href="#">
+                                <img class="avatar border-gray" src="assets/img/R.png" alt="..."/>
+
+                                <h4 class="title">Empreinte<br />
+                                    <small>Registered</small>
+                                </h4>
+                            </a>
+                        </div>
+                        <p class="description text-center"> "Lamborghini Mercy <br>
+                            Your chick she so thirsty <br>
+                            I'm in that two seat Lambo"
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
+                        <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
+                        <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
