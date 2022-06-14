@@ -24,6 +24,8 @@ export class MemberAddComponent implements OnInit {
   errorMessages: ErrorMessage[] = [];
   entityData: InsertData | any;
 
+  member: null;
+
   prenoms: string;
   nom: string;
   situationFamiliale: string;

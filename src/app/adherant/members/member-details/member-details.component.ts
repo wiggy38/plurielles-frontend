@@ -24,7 +24,9 @@ export class MemberDetailsComponent implements OnInit {
   entityData: InsertData | any;
 
   prenoms: string;
+  prenomsValue: string;
   nom: string;
+  nomValue: string;
   situationFamiliale: string;
   commentaires: any;
   profession: any;

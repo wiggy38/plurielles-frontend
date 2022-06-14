@@ -5,21 +5,21 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Enregistrer une nouvelle adhérante</h4>
+                        <h4 class="title">Editer {{member.prenoms}} {{member.nom}}</h4>
                     </div>
                     <div class="content">
                         <form [formGroup]="formMember" (ngSubmit)="onSubmit()">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Prénoms</label>
-                                        <input type="text" id="prenoms" formControlName="prenoms" class="form-control p-inputtext" pInputText [(ngModel)]="prenoms" placeholder="Prénoms">
+                                        <label>Prénoms </label>
+                                        <input type="text" value="{{member.prenoms}}" id="prenoms" class="form-control p-inputtext" [(ngModel)]="prenoms" placeholder="Prénoms">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nom</label>
-                                        <input type="text" id="nom" formControlName="nom" class="form-control p-inputtext" pInputText [(ngModel)]="nom" placeholder="Nom">
+                                        <input type="text" id="nom" class="form-control p-inputtext" pInputText [(ngModel)]="nom" placeholder="Nom" value="{{member.nom}}">
                                     </div>
                                 </div>
                             </div>
@@ -28,37 +28,37 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>Quartier</label>
-                                        <input type="text"  formControlName="quartier" class="form-control p-inputtext" pInputText [(ngModel)]="quartier" placeholder="area">
+                                        <input type="text" class="form-control p-inputtext" [(ngModel)]="quartier" placeholder="area" value="{{member.quartier}}">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Téléphone</label>
-                                        <input type="text"  formControlName="phone" class="form-control p-inputtext" pInputText [(ngModel)]="phone" placeholder="Téléphone">
+                                        <input type="text" class="form-control p-inputtext" [(ngModel)]="phone" placeholder="Téléphone" value="{{member.phone}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Adresse e-mail</label>
-                                        <input type="email" formControlName="email" class="form-control p-inputtext" pInputText [(ngModel)]="email" placeholder="Adresse e-mail">
+                                        <input type="email" class="form-control p-inputtext" pInputText [(ngModel)]="email" placeholder="Adresse e-mail" value="{{member.email}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>categorie</label>
-                                        <input type="number" formControlName="category" class="form-control p-inputtext" pInputText [(ngModel)]="category" placeholder="Catégorie">
+                                        <input type="number" class="form-control p-inputtext" pInputText [(ngModel)]="category" placeholder="Catégorie" value="{{member.category.libelle}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Formule d'adhésion</label>
-                                        <input type="number" formControlName="formula" class="form-control p-inputtext" pInputText [(ngModel)]="formula" placeholder="Formule">
+                                        <input type="number" class="form-control p-inputtext" pInputText [(ngModel)]="formula" placeholder="Formule" value="{{member.formula.libelle}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Réf. pièce d'identité</label>
-                                        <input type="text" formControlName="refIdentite" class="form-control p-inputtext" pInputText [(ngModel)]="refIdentite" placeholder="Référence">
+                                        <input type="text" class="form-control p-inputtext" pInputText [(ngModel)]="refIdentite" placeholder="Référence" value="{{member.refIdentite}}">
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Adresse</label>
-                                        <input type="text" formControlName="address" class="form-control p-inputtext" pInputText [(ngModel)]="address" placeholder="Adresse">
+                                        <input type="text" class="form-control p-inputtext" pInputText [(ngModel)]="address" placeholder="Adresse" value="{{member.address}}">
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Secteur d'activité</label>
-                                        <input type="number" formControlName="secteur" class="form-control p-inputtext" pInputText [(ngModel)]="secteur" placeholder="secteur">
+                                        <input type="number" class="form-control p-inputtext" pInputText [(ngModel)]="secteur" placeholder="secteur" value="{{member.secteur.libelle}}">
                                     </div>
                                 </div>
                             </div>
@@ -85,19 +85,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Ville</label>
-                                        <input type="text" formControlName="city" class="form-control p-inputtext" pInputText [(ngModel)]="city" placeholder="Ville">
+                                        <input type="text" class="form-control p-inputtext" pInputText [(ngModel)]="city" placeholder="Ville" value="{{member.city}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Profession</label>
-                                        <input type="text" formControlName="profession" class="form-control p-inputtext" pInputText [(ngModel)]="profession" placeholder="Profession">
+                                        <input type="text" class="form-control p-inputtext" pInputText [(ngModel)]="profession" placeholder="Profession" value="{{member.profession}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Situation familiale</label>
-                                        <input type="text" id="situationFamiliale" formControlName="situationFamiliale" class="form-control p-inputtext" pInputText [(ngModel)]="situationFamiliale" placeholder="Situation familiale">
+                                        <input type="text" id="situationFamiliale" class="form-control p-inputtext" pInputText [(ngModel)]="situationFamiliale" placeholder="Situation familiale" value="{{member.situationFamiliale}}">
                                     </div>
                                 </div>
                             </div>
