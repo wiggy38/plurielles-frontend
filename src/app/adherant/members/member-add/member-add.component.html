@@ -45,14 +45,18 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>categorie</label>
-                                        <input type="number" formControlName="category" class="form-control p-inputtext" pInputText [(ngModel)]="category" placeholder="Catégorie">
+                                        <label>Categorie</label>
+                                        <select class="form-control" [(ngModel)]="category">
+                                            <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.label}}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Formule d'adhésion</label>
-                                        <input type="number" formControlName="formula" class="form-control p-inputtext" pInputText [(ngModel)]="formula" placeholder="Formule">
+                                        <select class="form-control" [(ngModel)]="formula">
+                                            <option *ngFor="let formu of formulas" value="{{formu.id}}">{{formu.label}}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -76,7 +80,9 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Secteur d'activité</label>
-                                        <input type="number" formControlName="secteur" class="form-control p-inputtext" pInputText [(ngModel)]="secteur" placeholder="secteur">
+                                        <select class="form-control" [(ngModel)]="secteur">
+                                            <option *ngFor="let sec of secteurs" value="{{sec.id}}">{{sec.label}}</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
