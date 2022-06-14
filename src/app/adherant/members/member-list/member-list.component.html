@@ -8,16 +8,27 @@
                         <p class="category">Tous les membres</p>
                     </div>
                     <div class="content table-responsive table-full-width">
+
                         <table class="table table-hover table-striped">
                             <thead>
-                            <tr>
-                                <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
-                            </tr>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénoms</th>
+                                    <th>Categorie</th>
+                                    <th>Situation</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let row of tableData1.dataRows">
-                                <td *ngFor="let cell of row">{{cell}}</td>
-                            </tr>
+                                <tr *ngFor="let member of members">
+                                    <td>
+                                        <a href="#">{{member.nom}}</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">{{member.prenoms}}</a>
+                                    </td>
+                                    <td>{{member.category.libelle}}</td>
+                                    <td>{{member.situationFamiliale}}</td>
+                                </tr>
                             </tbody>
                         </table>
 

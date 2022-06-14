@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MemberFormService} from "../member-form.service";
+import {Member} from "../../../model/member";
 
 declare interface TableData {
   headerRow: string[];
@@ -14,10 +16,12 @@ export class MemberListComponent implements OnInit {
 
   public tableData1: TableData;
   public tableData2: TableData;
+  public members: Member[];
 
-  constructor() { }
+  constructor(private memberFormService: MemberFormService) { }
 
   ngOnInit() {
+    this.loadData();
     this.tableData1 = {
       headerRow: [ 'ID', 'Nom', 'Telephone', 'Ville', 'Categorie', 'Formule'],
       dataRows: [
@@ -29,6 +33,17 @@ export class MemberListComponent implements OnInit {
         ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
       ]
     };
+  }
+
+
+  private loadData() {
+    this.memberFormService.getAllMembers().subscribe({
+      next: value => {
+        console.log(value);
+        this.members = value;
+        //this.dt.reset();
+      }
+    });
   }
 
 }

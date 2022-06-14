@@ -10,15 +10,14 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {MemberListComponent} from "../../adherant/members/member-list/member-list.component";
 import {MemberProfileComponent} from "../../adherant/members/member-profile/member-profile.component";
-import {MemberFormComponent} from "../../adherant/members/member-form/member-form.component";
 import {MemberAddComponent} from "../../adherant/members/member-add/member-add.component";
+import {MemberDetailsComponent} from "../../adherant/members/member-details/member-details.component";
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',                component: HomeComponent },
     { path: 'members/add/new',          component: MemberAddComponent },
-    { path: 'members/form',             component: MemberFormComponent },
     { path: 'members/list/all',         component: MemberListComponent },
-    { path: 'members/profile',          component: MemberProfileComponent },
+    { path: 'members/profile',          component: MemberDetailsComponent },
     { path: 'user',                     component: UserComponent },
     { path: 'table',                    component: TablesComponent },
     { path: 'typography',               component: TypographyComponent },

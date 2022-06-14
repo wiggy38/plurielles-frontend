@@ -13,13 +13,14 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { MemberFormComponent } from './adherant/members/member-form/member-form.component';
 import { MemberListComponent } from './adherant/members/member-list/member-list.component';
 import { MemberProfileComponent } from './adherant/members/member-profile/member-profile.component';
 import {InputTextModule} from "primeng/inputtext";
 import { MemberAddComponent } from './adherant/members/member-add/member-add.component';
 import {CheckboxModule} from "primeng/checkbox";
 import {ToastModule} from 'primeng/toast';
+import {TableModule} from "primeng/table";
+import { MemberDetailsComponent } from './adherant/members/member-details/member-details.component';
 
 @NgModule({
     imports: [
@@ -36,15 +37,16 @@ import {ToastModule} from 'primeng/toast';
         InputTextModule,
         ReactiveFormsModule,
         CheckboxModule,
-        ToastModule
+        ToastModule,
+        TableModule
     ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    MemberFormComponent,
     MemberListComponent,
     MemberProfileComponent,
-    MemberAddComponent
+    MemberAddComponent,
+    MemberDetailsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

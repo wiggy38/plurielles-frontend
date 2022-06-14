@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClientModule} from "@angular/common/http";
-import {MessageService} from "primeng/api";
-import {Member} from "../../../model/member";
-import {FormBuilder} from "@angular/forms";
-import {Table} from "primeng/table";
 import {MemberFormService} from "../member-form.service";
-
+import {Member} from "../../../model/member";
+import {Table} from "primeng/table";
+import {MessageService} from "primeng/api";
+import {FormBuilder} from "@angular/forms";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-member-add',
-  templateUrl: './member-add.component.html',
-  styleUrls: ['./member-add.component.scss'],
+  selector: 'app-member-details',
+  templateUrl: './member-details.component.html',
+  styleUrls: ['./member-details.component.scss'],
   providers: [MessageService]
 })
-export class MemberAddComponent implements OnInit {
-  members: Member[] = [];
-  currentMember: Member | undefined; // the hero currently being edited
-  heroName = '';
-  mandatoryFields: any;
+export class MemberDetailsComponent implements OnInit {
+
+  public member: Member;
+  private mandatoryFields: string[];
+
   formErrors: boolean = false;
   errorField: string;
   errorFields: string[] = [];
@@ -41,13 +40,31 @@ export class MemberAddComponent implements OnInit {
   refIdentite: any;
   selectedDocs: any;
 
-  constructor(private messageService: MessageService,
+  constructor(private route: ActivatedRoute,
+              private messageService: MessageService,
               private formBuilder: FormBuilder,
-              private memberFormService: MemberFormService) { }
+              private memberFormService: MemberFormService) {
+  }
 
   ngOnInit(): void {
-
     this.mandatoryFields = ["nom", "prenoms", "situationFamiliale"];
+
+    // First get the application id from the current route.
+    const routeParams = this.route.snapshot.paramMap;
+    const memberid = Number(routeParams.get('id'));
+    this.getApplication(memberid);
+  }
+
+  getApplication(applicationId: number) {
+    // Find the product that correspond with the id provided in route.
+    this.memberFormService.getMemberDetail(applicationId).subscribe({
+      next: value => {
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        console.log(value);
+        this.member = value;
+        //this.changeDetectorRef.markForCheck()
+      }
+    })
   }
 
   // Données du formulaire
@@ -76,28 +93,27 @@ export class MemberAddComponent implements OnInit {
     //this.items = this.cartService.clearCart();
 
     for (const field of this.mandatoryFields) {
-      if( (this.formMember.value[field] == undefined) || (this.formMember.value[field]=='') ) {
+      if ((this.formMember.value[field] == undefined) || (this.formMember.value[field] == '')) {
         this.formErrors = true;
         this.errorFields.push(field);
         this.errorField = this.formMember.value[field];
-        this.errorMessages.push({severity:'error', summary:'Service Message', detail:field+' ne peut être vide.'})
-        console.log("--- formMember "+this.formMember.value[field]+" ** "+field);
+        this.errorMessages.push({severity: 'error', summary: 'Service Message', detail: field + ' ne peut être vide.'})
+        console.log("--- formMember " + this.formMember.value[field] + " ** " + field);
       }
     }
 
-    console.log("BOURSE nom "+this.formMember.value.nom);
-    console.log("BOURSE prenoms "+this.formMember.value.prenoms);
-    console.log("BOURSE situationFamiliale "+this.formMember.value.situationFamiliale);
+    console.log("BOURSE nom " + this.formMember.value.nom);
+    console.log("BOURSE prenoms " + this.formMember.value.prenoms);
+    console.log("BOURSE situationFamiliale " + this.formMember.value.situationFamiliale);
 
-    if(this.formErrors) {
-      console.log(" HERE ARE ERRORS FIELDS -- "+this.errorMessages);
+    if (this.formErrors) {
+      console.log(" HERE ARE ERRORS FIELDS -- " + this.errorMessages);
       this.addMultiple(this.errorMessages);
       this.errorMessages = [];
-    }
-    else {
+    } else {
 
       this.entityData = {};
-      console.log("BOURSE CREATE "+this.formMember.value.nom);
+      console.log("BOURSE CREATE " + this.formMember.value.nom);
 
       // Set value from search from
       this.entityData.nom = this.formMember.value.nom;
@@ -122,8 +138,8 @@ export class MemberAddComponent implements OnInit {
       //Run search and Get results
       this.memberFormService.addMember(this.entityData).subscribe({
         next: value => {
-          console.log("Bourse created :: "+value.nom);
-          this.addMultiple([{severity: 'success', summary: 'Succès', detail: value.nom+' a été créée.'}]);
+          console.log("Bourse created :: " + value.nom);
+          this.addMultiple([{severity: 'success', summary: 'Succès', detail: value.nom + ' a été créée.'}]);
           //this.getHeroes();
         },
         error: err => {
@@ -134,9 +150,10 @@ export class MemberAddComponent implements OnInit {
 
   }
 
-  addMultiple(errors: ErrorMessage[]){
+  addMultiple(errors: ErrorMessage[]) {
     this.messageService.addAll(errors);
   }
+
   clear() {
     this.messageService.clear();
   }
