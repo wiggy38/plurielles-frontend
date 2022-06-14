@@ -5,6 +5,7 @@ import {Member} from "../../../model/member";
 import {FormBuilder} from "@angular/forms";
 import {Table} from "primeng/table";
 import {MemberFormService} from "../member-form.service";
+import {CommonModel} from "../../../model/CommonModel";
 
 
 @Component({
@@ -23,6 +24,9 @@ export class MemberAddComponent implements OnInit {
   errorFields: string[] = [];
   errorMessages: ErrorMessage[] = [];
   entityData: InsertData | any;
+  categories: CommonModel[];
+  formulas: CommonModel[];
+  secteurs: CommonModel[];
 
   member: null;
 
