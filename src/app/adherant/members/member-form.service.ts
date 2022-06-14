@@ -8,6 +8,7 @@ import { catchError } from 'rxjs/operators';
 import { HttpErrorHandler, HandleError } from '../../http-error-handler.service';
 import {Member} from "../../model/member";
 import {MessageService} from "../../message.service";
+import {CommonModel} from "../../model/CommonModel";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -23,6 +24,9 @@ export class MemberFormService {
   private addMembersUrl = 'http://localhost:8081/api/member/w/insert/new';  // URL to web api
   private membersListUrl = 'http://localhost:8081/api/member/r/list/all';
   private sngleMemberUrl = 'http://localhost:8081/api/member/r/single/entry/';
+  private categoriesListUrl = 'http://localhost:8081/api/category/r/list/all';
+  private formulasListUrl = 'http://localhost:8081/api/formula/r/list/all';
+  private secteursListUrl = 'http://localhost:8081/api/secteur/r/list/all';
 
   constructor(
       private http: HttpClient,
@@ -35,6 +39,33 @@ export class MemberFormService {
         .pipe(
             tap(_ => console.log('fetched members')),
             catchError(this.handleError<Member[]>('getAllMembers', []))
+        );
+  }
+
+  /** GET bourses from the server */
+  getAllCategories(): Observable<CommonModel[]> {
+    return this.http.get<CommonModel[]>(this.categoriesListUrl, httpOptions)
+        .pipe(
+            tap(_ => console.log('fetched Categories')),
+            catchError(this.handleError<CommonModel[]>('getAllCategorie', []))
+        );
+  }
+
+  /** GET bourses from the server */
+  getAllFormulas(): Observable<CommonModel[]> {
+    return this.http.get<CommonModel[]>(this.formulasListUrl, httpOptions)
+        .pipe(
+            tap(_ => console.log('fetched Formulas')),
+            catchError(this.handleError<CommonModel[]>('getAllFormulas', []))
+        );
+  }
+
+  /** GET bourses from the server */
+  getAllSecteurs(): Observable<CommonModel[]> {
+    return this.http.get<CommonModel[]>(this.secteursListUrl, httpOptions)
+        .pipe(
+            tap(_ => console.log('fetched Secteurs')),
+            catchError(this.handleError<CommonModel[]>('getAllSecteurs', []))
         );
   }
 

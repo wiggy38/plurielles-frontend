@@ -5,6 +5,7 @@ import {Table} from "primeng/table";
 import {MessageService} from "primeng/api";
 import {FormBuilder} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
+import {CommonModel} from "../../../model/CommonModel";
 
 @Component({
   selector: 'app-member-details',
@@ -41,6 +42,9 @@ export class MemberDetailsComponent implements OnInit {
   existJuridiq: any;
   refIdentite: any;
   selectedDocs: any;
+  categories: CommonModel[];
+  formulas: CommonModel[];
+  secteurs: CommonModel[];
 
   constructor(private route: ActivatedRoute,
               private messageService: MessageService,
@@ -55,6 +59,9 @@ export class MemberDetailsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const memberid = Number(routeParams.get('id'));
     this.getApplication(memberid);
+    this.loadCategories();
+    this.loadSecteurs();
+    this.loadFormulas();
   }
 
   getApplication(applicationId: number) {
@@ -67,6 +74,37 @@ export class MemberDetailsComponent implements OnInit {
         //this.changeDetectorRef.markForCheck()
       }
     })
+  }
+
+
+  private loadCategories() {
+    this.memberFormService.getAllCategories().subscribe({
+      next: value => {
+        console.log(value);
+        this.categories = value;
+        //this.dt.reset();
+      }
+    });
+  }
+
+  private loadFormulas() {
+    this.memberFormService.getAllFormulas().subscribe({
+      next: value => {
+        console.log(value);
+        this.formulas = value;
+        //this.dt.reset();
+      }
+    });
+  }
+
+  private loadSecteurs() {
+    this.memberFormService.getAllSecteurs().subscribe({
+      next: value => {
+        console.log(value);
+        this.secteurs = value;
+        //this.dt.reset();
+      }
+    });
   }
 
   // Données du formulaire

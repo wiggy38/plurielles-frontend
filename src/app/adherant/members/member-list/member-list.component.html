@@ -21,10 +21,10 @@
                             <tbody>
                                 <tr *ngFor="let member of members">
                                     <td>
-                                        <a href="#">{{member.nom}}</a>
+                                        <a href="#/members/profile/{{member.id}}">{{member.nom}}</a>
                                     </td>
                                     <td>
-                                        <a href="#">{{member.prenoms}}</a>
+                                        <a href="#/members/profile/{{member.id}}">{{member.prenoms}}</a>
                                     </td>
                                     <td>{{member.category.libelle}}</td>
                                     <td>{{member.situationFamiliale}}</td>
