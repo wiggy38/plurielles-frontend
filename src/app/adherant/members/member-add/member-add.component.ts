@@ -6,6 +6,7 @@ import {FormBuilder} from "@angular/forms";
 import {Table} from "primeng/table";
 import {MemberFormService} from "../member-form/member-form.service";
 
+
 @Component({
   selector: 'app-member-add',
   templateUrl: './member-add.component.html',
@@ -65,8 +66,8 @@ export class MemberAddComponent implements OnInit {
     formula: '',
     existJuridiq: '',
     refIdentite: '',
-    selectedDocs: ''
-
+    selectedDocs: '',
+    secteur: ''
   });
 
 

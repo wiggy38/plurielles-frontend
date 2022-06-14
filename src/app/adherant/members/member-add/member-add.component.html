@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="main-content" >
     <div class="container-fluid">
         <div class="row">
@@ -57,7 +58,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Réf. pièce d'identité</label>
-                                        <input type="text" formControlName="formula" class="form-control p-inputtext" pInputText [(ngModel)]="formula" placeholder="Référence">
+                                        <input type="text" formControlName="refIdentite" class="form-control p-inputtext" pInputText [(ngModel)]="refIdentite" placeholder="Référence">
                                     </div>
                                 </div>
                             </div>
@@ -67,6 +68,15 @@
                                     <div class="form-group">
                                         <label>Adresse</label>
                                         <input type="text" formControlName="address" class="form-control p-inputtext" pInputText [(ngModel)]="address" placeholder="Adresse">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Secteur d'activité</label>
+                                        <input type="number" formControlName="secteur" class="form-control p-inputtext" pInputText [(ngModel)]="secteur" placeholder="secteur">
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +107,7 @@
                                     <div class="form-group">
                                         <label style="margin-bottom:0px">Existence Juridique</label>
                                         &nbsp;
-                                        <p-checkbox [(ngModel)]="existJuridiq" [binary]="true" id="binary" inputId="binary"></p-checkbox>
+                                        <p-checkbox [(ngModel)]="existJuridiq" [binary]="true" id="existJuridiq" inputId="existJuridiq"></p-checkbox>
                                     </div>
                                 </div>
                                 <div class="col-md-8">

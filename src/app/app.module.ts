@@ -19,6 +19,7 @@ import { MemberProfileComponent } from './adherant/members/member-profile/member
 import {InputTextModule} from "primeng/inputtext";
 import { MemberAddComponent } from './adherant/members/member-add/member-add.component';
 import {CheckboxModule} from "primeng/checkbox";
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import {CheckboxModule} from "primeng/checkbox";
         HttpClientModule,
         InputTextModule,
         ReactiveFormsModule,
-        CheckboxModule
+        CheckboxModule,
+        ToastModule
     ],
   declarations: [
     AppComponent,
