@@ -50,9 +50,11 @@ export class MemberDetailsComponent implements OnInit {
               private messageService: MessageService,
               private formBuilder: FormBuilder,
               private memberFormService: MemberFormService) {
+    console.log("<<<<<<<<< B");
   }
 
   ngOnInit(): void {
+    console.log("<<<<<<<<< A");
     this.mandatoryFields = ["nom", "prenoms", "situationFamiliale"];
 
     // First get the application id from the current route.
@@ -78,6 +80,7 @@ export class MemberDetailsComponent implements OnInit {
 
 
   private loadCategories() {
+    console.log("<<<<<<<<< C");
     this.memberFormService.getAllCategories().subscribe({
       next: value => {
         console.log(value);
@@ -88,6 +91,7 @@ export class MemberDetailsComponent implements OnInit {
   }
 
   private loadFormulas() {
+    console.log("<<<<<<<<< D");
     this.memberFormService.getAllFormulas().subscribe({
       next: value => {
         console.log(value);
@@ -98,6 +102,7 @@ export class MemberDetailsComponent implements OnInit {
   }
 
   private loadSecteurs() {
+    console.log("<<<<<<<<< E");
     this.memberFormService.getAllSecteurs().subscribe({
       next: value => {
         console.log(value);
