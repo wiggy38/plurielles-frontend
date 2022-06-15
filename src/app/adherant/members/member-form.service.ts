@@ -24,19 +24,19 @@ const httpOptions = {
 export class MemberFormService {
   private baseUrl: string;
   //this.baseUrl = 'http://localhost:8081';
-  private addMembersUrl = 'http://localhost:8081/api/member/w/insert/new';  // URL to web api
+  /*private addMembersUrl = 'http://localhost:8081/api/member/w/insert/new';  // URL to web api
   private membersListUrl = 'http://localhost:8081/api/member/r/list/all';
   private sngleMemberUrl = 'http://localhost:8081/api/member/r/single/entry/';
   private categoriesListUrl = 'http://localhost:8081/api/category/r/list/all';
   private formulasListUrl = 'http://localhost:8081/api/formula/r/list/all';
-  private secteursListUrl = 'http://localhost:8081/api/secteur/r/list/all';
+  private secteursListUrl = 'http://localhost:8081/api/secteur/r/list/all';*/
 
-  /*private addMembersUrl = 'https://plurielles-backend.herokuapp.com/api/member/w/insert/new';  // URL to web api
+  private addMembersUrl = 'https://plurielles-backend.herokuapp.com/api/member/w/insert/new';  // URL to web api
   private membersListUrl = 'https://plurielles-backend.herokuapp.com/api/member/r/list/all';
   private sngleMemberUrl = 'https://plurielles-backend.herokuapp.com/api/member/r/single/entry/';
   private categoriesListUrl = 'https://plurielles-backend.herokuapp.com/api/category/r/list/all';
   private formulasListUrl = 'https://plurielles-backend.herokuapp.com/api/formula/r/list/all';
-  private secteursListUrl = 'https://plurielles-backend.herokuapp.com/api/secteur/r/list/all';*/
+  private secteursListUrl = 'https://plurielles-backend.herokuapp.com/api/secteur/r/list/all';
 
   constructor(
       private http: HttpClient,
