@@ -42,7 +42,7 @@ export class MemberAddComponent implements OnInit {
   phone: any;
   quartier: any;
   formula: any;
-  secteur: any;
+  sectActivite: any;
   existJuridiq: any;
   refIdentite: any;
   selectedDocs: any;
@@ -70,15 +70,15 @@ export class MemberAddComponent implements OnInit {
     profession: '',
     city: '',
     address: '',
-    category: '',
     email: '',
     phone: '',
     quartier: '',
-    formula: '',
     existJuridiq: '',
     refIdentite: '',
     selectedDocs: '',
-    secteur: ''
+    category: '',
+    formula: '',
+    sectActivite: ''
   });
 
 
@@ -129,6 +129,9 @@ export class MemberAddComponent implements OnInit {
     console.log("BOURSE nom "+this.formMember.value.nom);
     console.log("BOURSE prenoms "+this.formMember.value.prenoms);
     console.log("BOURSE situationFamiliale "+this.formMember.value.situationFamiliale);
+    console.log("BOURSE category "+this.formMember.value.category);
+    console.log("BOURSE formula "+this.formMember.value.formula);
+    console.log("BOURSE formula "+this.formMember.value.formula);
 
     if(this.formErrors) {
       console.log(" HERE ARE ERRORS FIELDS -- "+this.errorMessages);
@@ -153,10 +156,13 @@ export class MemberAddComponent implements OnInit {
       this.entityData.city = this.formMember.value.city;
       this.entityData.commentaires = this.formMember.value.commentaires;
       this.entityData.formula = this.formMember.value.formula;
-      this.entityData.secteur = this.formMember.value.secteur;
+      this.entityData.secteur = this.formMember.value.sectActivite;
       this.entityData.refIdentite = this.formMember.value.refIdentite;
       this.entityData.existJuridiq = this.formMember.value.existJuridiq;
-      this.entityData.selectedDocs = this.formMember.value.selectedDocs;
+      this.entityData.docJuridiq = '';
+      for(let i=0; i<this.formMember.value.selectedDocs.length; i++){
+        this.entityData.docJuridiq = this.entityData.docJuridiq+i+',';
+      }
 
       this.formMember.reset();
       console.warn('Your data has been submitted', this.entityData);
