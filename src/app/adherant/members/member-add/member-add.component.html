@@ -46,16 +46,16 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Categorie</label>
-                                        <select class="form-control" [(ngModel)]="category">
-                                            <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.label}}</option>
+                                        <select class="form-control" formControlName="category" [(ngModel)]="category">
+                                            <option *ngFor="let cat of categories" [value]="cat.id" value="{{cat.id}}">{{cat.label}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Formule d'adhésion</label>
-                                        <select class="form-control" [(ngModel)]="formula">
-                                            <option *ngFor="let formu of formulas" value="{{formu.id}}">{{formu.label}}</option>
+                                        <select class="form-control" formControlName="formula" [(ngModel)]="formula">
+                                            <option *ngFor="let formu of formulas" [value]="formu.id" value="{{formu.id}}">{{formu.label}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -80,8 +80,8 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Secteur d'activité</label>
-                                        <select class="form-control" [(ngModel)]="secteur">
-                                            <option *ngFor="let sec of secteurs" value="{{sec.id}}">{{sec.label}}</option>
+                                        <select class="form-control" formControlName="sectActivite" [(ngModel)]="sectActivite">
+                                            <option *ngFor="let sec of secteurs" [value]="sec.id" value="{{sec.id}}">{{sec.label}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -112,24 +112,22 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label style="margin-bottom:0px">Existence Juridique</label>
-                                        &nbsp;
-                                        <p-checkbox [(ngModel)]="existJuridiq" [binary]="true" id="existJuridiq" inputId="existJuridiq"></p-checkbox>
+                                        <p-checkbox formControlName="existJuridiq" [(ngModel)]="existJuridiq" [binary]="true" id="existJuridiq" inputId="existJuridiq"></p-checkbox>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label>Documents juridiques</label>
                                         <div class="field-checkbox">
-                                            <p-checkbox name="rccm" value="Registre de commerce" [(ngModel)]="selectedDocs" id="rccm" inputId="rccm"></p-checkbox>
-                                            &nbsp;
+                                            <p-checkbox name="rccm" value="Registre de commerce" formControlName="selectedDocs" [(ngModel)]="selectedDocs" id="rccm" inputId="rccm"></p-checkbox>
                                             <label for="rccm" style="margin-bottom:0px">Registre de commerce</label>
                                         </div>
                                         <div class="field-checkbox">
-                                            <p-checkbox name="numIdentification" value="Numéro d'identification" [(ngModel)]="selectedDocs" id="numIdentification" inputId="numIdentification"></p-checkbox>
+                                            <p-checkbox name="numIdentification" value="Numéro d'identification" formControlName="selectedDocs" [(ngModel)]="selectedDocs" id="numIdentification" inputId="numIdentification"></p-checkbox>
                                             &nbsp;<label for="numIdentification" style="margin-bottom:0px">Numéro d'identification</label>
                                         </div>
                                         <div class="field-checkbox">
-                                            <p-checkbox name="numImpots" value="Numéro des impôts" [(ngModel)]="selectedDocs" id="numImpots" inputId="numImpots"></p-checkbox>
+                                            <p-checkbox name="numImpots" value="Numéro des impôts" formControlName="selectedDocs" [(ngModel)]="selectedDocs" id="numImpots" inputId="numImpots"></p-checkbox>
                                             &nbsp;<label for="numImpots" style="margin-bottom:0px">Numéro des impôts</label>
                                         </div>
                                     </div>
