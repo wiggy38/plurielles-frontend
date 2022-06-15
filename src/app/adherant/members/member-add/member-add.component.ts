@@ -170,7 +170,7 @@ export class MemberAddComponent implements OnInit {
       this.memberFormService.addMember(this.entityData).subscribe({
         next: value => {
           console.log("Bourse created :: "+value.nom);
-          this.addMultiple([{severity: 'success', summary: 'Succès', detail: value.nom+' a été créée.'}]);
+          this.addMultiple([{severity: 'success', summary: 'Succès', detail: 'Le membre a été créé avec succès.'}]);
           //this.getHeroes();
         },
         error: err => {
