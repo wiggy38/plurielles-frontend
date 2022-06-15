@@ -49,11 +49,16 @@ export class MemberAddComponent implements OnInit {
 
   constructor(private messageService: MessageService,
               private formBuilder: FormBuilder,
-              private memberFormService: MemberFormService) { }
+              private memberFormService: MemberFormService) {
+  }
 
   ngOnInit(): void {
 
     this.mandatoryFields = ["nom", "prenoms", "situationFamiliale"];
+    this.loadCategories();
+    this.loadSecteurs();
+    this.loadFormulas();
+
   }
 
   // Données du formulaire
@@ -76,6 +81,36 @@ export class MemberAddComponent implements OnInit {
     secteur: ''
   });
 
+
+  private loadCategories() {
+    this.memberFormService.getAllCategories().subscribe({
+      next: value => {
+        console.log(value);
+        this.categories = value;
+        //this.dt.reset();
+      }
+    });
+  }
+
+  private loadFormulas() {
+    this.memberFormService.getAllFormulas().subscribe({
+      next: value => {
+        console.log(value);
+        this.formulas = value;
+        //this.dt.reset();
+      }
+    });
+  }
+
+  private loadSecteurs() {
+    this.memberFormService.getAllSecteurs().subscribe({
+      next: value => {
+        console.log(value);
+        this.secteurs = value;
+        //this.dt.reset();
+      }
+    });
+  }
 
   onSubmit(): void {
     // Process search form values
